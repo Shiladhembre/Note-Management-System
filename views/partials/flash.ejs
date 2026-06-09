@@ -1,0 +1,8 @@
+<div x-data="{ items: <%- JSON.stringify([...success.map(m=>({type:'success',msg:m})), ...error.map(m=>({type:'error',msg:m}))]) %> }"
+  class="fixed top-16 right-4 z-50 space-y-2">
+  <template x-for="(t, i) in items" :key="i">
+    <div x-init="setTimeout(() => items.splice(i,1), 4000)"
+      :class="t.type === 'success' ? 'bg-emerald-600' : 'bg-rose-600'"
+      class="text-white px-4 py-2 rounded-md shadow-lg text-sm" x-text="t.msg"></div>
+  </template>
+</div>

@@ -1,0 +1,11 @@
+<div class="max-w-md mx-auto bg-white dark:bg-slate-900 rounded-xl shadow p-8 mt-10">
+  <h1 class="text-2xl font-bold mb-6">Create account</h1>
+  <form method="POST" action="/auth/register" class="space-y-4">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+    <input name="name" placeholder="Full name" required class="w-full px-3 py-2 rounded-md border border-slate-300 dark:border-slate-700 bg-transparent" />
+    <input name="email" type="email" placeholder="Email" required class="w-full px-3 py-2 rounded-md border border-slate-300 dark:border-slate-700 bg-transparent" />
+    <input name="password" type="password" placeholder="Password (min 8)" required class="w-full px-3 py-2 rounded-md border border-slate-300 dark:border-slate-700 bg-transparent" />
+    <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-md">Sign up</button>
+  </form>
+  <p class="text-sm mt-4">Have an account? <a href="/auth/login" class="text-indigo-600 hover:underline">Log in</a></p>
+</div>

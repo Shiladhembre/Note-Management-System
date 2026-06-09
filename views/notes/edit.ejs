@@ -1,0 +1,16 @@
+<div class="max-w-2xl mx-auto bg-white dark:bg-slate-900 rounded-xl shadow p-6">
+  <h1 class="text-2xl font-bold mb-4">Edit note</h1>
+  <form method="POST" action="/notes/<%= note._id %>?_method=PUT" class="space-y-3">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+    <input name="title" value="<%= note.title %>" required maxlength="200" class="w-full px-3 py-2 rounded-md border bg-transparent" />
+    <textarea name="content" rows="12" class="w-full px-3 py-2 rounded-md border bg-transparent"><%= note.content %></textarea>
+    <div class="flex flex-wrap gap-3 items-center">
+      <label class="text-sm">Color <input type="color" name="color" value="<%= note.color || '#ffffff' %>" class="ml-2 align-middle" /></label>
+      <input name="labels" value="<%= (note.labels||[]).join(', ') %>" placeholder="labels" class="flex-1 px-3 py-2 rounded-md border bg-transparent" />
+    </div>
+    <div class="flex gap-2 justify-end">
+      <a href="/notes" class="px-4 py-2 rounded-md bg-slate-200 dark:bg-slate-800">Cancel</a>
+      <button class="px-4 py-2 rounded-md bg-indigo-600 text-white">Save changes</button>
+    </div>
+  </form>
+</div>
